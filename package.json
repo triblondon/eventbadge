@@ -5,7 +5,11 @@
   "description": "Prints name badges on demand as attendees check in",
   "main": "main.js",
   "dependencies": {
-    "printer": "^0.1.1"
+    "debug": "^2.2.0",
+    "ipp": "0.0.8",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "node-fetch": "^1.3.2"
   },
   "repository": {
     "type": "git",

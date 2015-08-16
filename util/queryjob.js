@@ -1,5 +1,7 @@
+'use strict';
+
 var ipp = require('ipp');
-var printer = ipp.Printer("ipp://localhost/printers/Brother_QL_570");
+var printer = ipp.Printer(process.env.IPP_PRINTER_URL);
 
 printer.execute("Get-Job-Attributes", {
 	"operation-attributes-tag": {

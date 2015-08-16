@@ -1,5 +1,7 @@
+'use strict';
+
 var ipp = require('ipp');
-var printer = ipp.Printer("ipp://localhost/printers/Brother_QL_570");
+var printer = ipp.Printer(process.env.IPP_PRINTER_URL);
 
 var msg = {
 	"operation-attributes-tag": {
@@ -12,9 +14,3 @@ var msg = {
 printer.execute("Get-Jobs", msg, function(err, res){
 	console.log(res);
 });
-
-/*
-printer.execute("Get-Printer-Attributes", null, function(err, res){
-	console.log(res);
-});
-*/
