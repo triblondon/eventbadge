@@ -1,0 +1,20 @@
+{
+  "name": "eventbadge",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Prints name badges on demand as attendees check in",
+  "main": "main.js",
+  "dependencies": {
+    "printer": "^0.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:triblondon/eventbadge.git"
+  },
+  "author": "Andrew Betts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/triblondon/eventbadge/issues"
+  },
+  "homepage": "https://github.com/triblondon/eventbadge"
+}
