@@ -1,6 +1,8 @@
 # Badge printing script for eventbrite events
 
-Polls the eventbrite API for new checkins.  When a person checks in for the first time, creates a PDF of a name badge, and prints it on a locally attached Brother Ql-570 printer.
+![Me wearing a badge](photo.jpg)
+
+Polls the eventbrite API for new checkins.  When a person checks in for the first time, creates a PDF of a name badge, and prints it on a locally attached Brother QL-570 printer.
 
 To run:
 
