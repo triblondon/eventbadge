@@ -16,17 +16,12 @@ document.addEventListener('click', function(e) {
 		var button = e.target;
 		e.preventDefault();
 		button.classList.add('activity');
-		fetch(button.dataset.href)
-			.then(function(stream) {
-				return stream.json();
-			})
-			.then(function(result) {
-				if (result === true) {
-					button.classList.remove('activity');
-				} else {
-					console.log(result);
-				}
-			})
-		;
+		$.post(button.dataset.href, function(result) {
+			if (result === true) {
+				button.classList.remove('activity');
+			} else {
+				console.log(result);
+			}
+		});
 	}
 });
