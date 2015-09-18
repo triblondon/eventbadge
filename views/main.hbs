@@ -1,0 +1,12 @@
+<div class='container'>
+	<h1>Attendees for {{eventname}}</h1>
+	<ul class='list-group'>
+	{{#each attendees}}
+		<li id='attendee-{{{id}}}' class='attendee list-group-item {{#if checkedIn}}checked-in{{/if}}'>
+			<span class="checkmark glyphicon glyphicon-ok"></span>
+			<strong>{{familyName}}</strong>, {{givenName}}
+			<a class='print-btn btn btn-default' data-href='/print/{{{id}}}'>Reprint badge</a>
+		</li>
+	{{/each}}
+</div>
+
