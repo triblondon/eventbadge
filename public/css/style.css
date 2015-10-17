@@ -1,0 +1,37 @@
+
+.attendees-list {
+	-webkit-column-count: 2;
+}
+
+.attendee {
+	font-size: 22px;
+	color: #777;
+	overflow: hidden;
+}
+.attendee .btn {
+	float: right;
+}
+.attendee .checkmark {
+	margin-right: 10px;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+.attendee .btn {
+	display: none;
+	cursor: pointer;
+}
+.attendee.checked-in {
+	border-left: 8px solid #00d400;
+	color: black;
+}
+.attendee.checked-in .checkmark {
+	opacity: 1;
+}
+.attendee.checked-in .btn {
+	display: block;
+}
+.btn.activity {
+	opacity: 0.5;
+	pointer-events: none;
+	user-select: none;
+}
