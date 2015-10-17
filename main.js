@@ -20,8 +20,7 @@ event.on('checkin', function(attendee) {
 		eventDate: event.getStartTime()
 	})).then(function(label) {
 		debug('Printing '+attendee.givenName+' '+attendee.familyName);
-		return Promise.resolve();
-		//return printLabel(label);
+		return printLabel(label);
 	}).catch(function(reason) {
 		console.log(reason.stack || reason);
 	});
