@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "Prints name badges on demand as attendees check in",
   "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
   "dependencies": {
     "debug": "^2.2.0",
     "dotenv": "^1.2.0",
