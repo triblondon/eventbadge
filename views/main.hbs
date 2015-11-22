@@ -1,12 +1,20 @@
 <div class='container'>
-	<h1>Attendees for {{eventname}}</h1>
-	<ul class='list-group'>
-	{{#each attendees}}
-		<li id='attendee-{{{id}}}' class='attendee list-group-item {{#if checkedIn}}checked-in{{/if}}'>
-			<span class="checkmark glyphicon glyphicon-ok"></span>
-			<strong>{{familyName}}</strong>, {{givenName}}
-			<a class='print-btn btn btn-default' data-href='/print/{{{id}}}'>Reprint badge</a>
-		</li>
-	{{/each}}
+	<header>
+		<img src='/resources/img/logo.svg' class='logo' />
+		<h1>{{eventName}} <time>{{date eventDate "dddd, MMMM Do YYYY, h:mma"}}</h1>
+	</header>
+	<div class='attendees-list'>
+		<ul>
+		{{#each attendees}}
+			<li id='attendee-{{{id}}}' class='attendee {{#if checkedIn}}checked-in{{/if}}'>
+				<div class="content">
+					<span class="checkmark fa fa-check"></span>
+					<strong>{{familyName}}</strong>, {{givenName}}
+					<a class='print-btn fa fa-print' data-href='/print/{{{id}}}'></a>
+				</div>
+			</li>
+		{{/each}}
+		</ul>
+	</div>
 </div>
 

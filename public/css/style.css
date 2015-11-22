@@ -1,0 +1,130 @@
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: sans-serif;
+}
+
+.container {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+header {
+	margin: 0 0 0.5em 0;
+	flex: 0 1 auto;
+}
+header h1 {
+	margin: 0.5em 0;
+	font-size: 2em;
+	font-weight: normal;
+	line-height: 1;
+}
+header time {
+	font-size: 0.7em;
+	color: #777;
+}
+header .logo {
+	float:right;
+	height: 4em;
+}
+
+.attendees-list {
+	flex: 1 0 auto;
+	overflow:hidden;
+	position: relative;
+}
+.attendees-list > ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	display: flex;
+	flex-flow: column wrap;
+}
+
+.attendee {
+	font-size: 1em;
+	color: #999;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	transition: all 0.3s ease;
+	position: relative;
+	flex: 0 1 auto;
+}
+.attendee .content {
+	display: block;
+	margin: 0 0.5em 0.3em 0;
+	padding: 0.5em 0.2em;
+	background: #eee;
+	position: relative;
+	transition: all 0.3s ease;
+}
+.attendee .print-btn {
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+	font-size: 1em;
+	opacity: 0.07;
+	cursor: pointer;
+	display: none;
+	transition: opacity,color 0.5s ease;
+}
+.attendee .print-btn:hover {
+	opacity: 1;
+}
+.attendee .print-btn.activity {
+	opacity: 1;
+	color: red;
+	pointer-events: none;
+	user-select: none;
+}
+
+.attendee .checkmark {
+	margin-left: 0.2em;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+.attendee.checked-in .content {
+	border-left: 0.5em solid #00d400;
+	color: black;
+	background: #E1F7E1;
+}
+.attendee.checked-in .checkmark {
+	opacity: 1;
+}
+.attendee.checked-in .print-btn {
+	display: block;
+}
+
+.attendees-list.cols-1 .attendee {
+	width: 100%;
+}
+.attendees-list.cols-2 .attendee {
+	width: 50%;
+}
+.attendees-list.cols-3 .attendee {
+	width: 33.3%;
+}
+.attendees-list.cols-4 .attendee {
+	width: 25%;
+}
+.attendees-list.cols-5 .attendee {
+	width: 20%;
+}
