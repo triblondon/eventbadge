@@ -128,3 +128,62 @@ header .logo {
 .attendees-list.cols-5 .attendee {
 	width: 20%;
 }
+
+
+.pop {
+	display: inline-block;
+	animation-duration: 1.5s;
+	font-size: 60px;
+	opacity: 0;
+	margin-top: 40px;
+	position: absolute;
+	font-family: Bangers;
+}
+.pop-1 { animation-name: pop1; }
+.pop-2 { animation-name: pop2; }
+.pop-3 { animation-name: pop3; }
+
+@keyframes pop1 {
+	from {
+		opacity:0;
+		transform: rotate(-20deg);
+	}
+	20% {
+		opacity:1;
+	}
+	to {
+		transform: rotate(-23deg) scale(2);
+		text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black;
+		opacity: 0;
+		letter-spacing: 0.2em;
+	}
+}
+@keyframes pop2 {
+	from {
+		opacity:0;
+		transform: rotate(-3deg);
+	}
+	10% {
+		opacity:1;
+	}
+	to {
+		transform: rotate(3deg) scaleY(2) scaleX(2.5);
+		text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black;
+		opacity: 0;
+		letter-spacing: 0.2em;
+	}
+}
+@keyframes pop3 {
+	from {
+		opacity:0;
+	}
+	10% {
+		opacity:1;
+	}
+	to {
+		transform: rotate(12deg) scaleY(1.7) scaleX(2);
+		text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black;
+		opacity: 0;
+		letter-spacing: 0.15em;
+	}
+}

@@ -2,6 +2,26 @@
 var source = new EventSource("/stream");
 var layoutTimer;
 var cont;
+var popMessages = [
+	"Commendable",
+	"Nice one",
+	"Good job",
+	"Highly performant",
+	"Exemplary",
+	"Cooking with gas",
+	"Right on",
+	"Bravo Zulu",
+	"Hooah",
+	"First class",
+	"Cracking",
+	"Outstanding",
+	"Tip top",
+	"Rad",
+	"Capital",
+	"Marvellous",
+	"Smashing",
+	"Nicely done"
+];
 
 function layout() {
 	cont.classList.remove('rendered');
@@ -46,7 +66,17 @@ function layout() {
 
 source.addEventListener("checkin", function(e) {
 	var attendeeID = e.data;
-	document.getElementById('attendee-'+attendeeID).classList.add('checked-in');
+	var attendeeEl = document.getElementById('attendee-'+attendeeID);
+	var popEl = document.createElement('div');
+	attendeeEl.classList.add('checked-in');
+	popEl.className = 'pop pop-'+Math.ceil(Math.random()*3);
+	popEl.style.top = attendeeEl.offsetTop+'px';
+	popEl.style.left = attendeeEl.offsetLeft+'px';
+	popEl.innerHTML = popMessages[Math.floor(Math.random()*popMessages.length)];
+	popEl.addEventListener('animationend', function() {
+		this.parentNode.removeChild(this);
+	});
+	document.body.appendChild(popEl);
 }, false);
 
 source.addEventListener("uncheckin", function(e) {
