@@ -19,7 +19,8 @@ To run:
 Configure the app via env vars as follows:
 
 * `IPP_PRINTER_URL`: IPP URL for the printer.  Can be discovered by running `lpstat -p -d`.  Append the printer name to `ipp://localhost/printers/`.
-* `EB_EVENT_ID`: (optional) Eventbrite event ID, as a string.  If not provided, will use the next upcoming event organised by you.  Generally better not to set this unless you have multiple events starting at the same time.
+* `EB_ORGANIZER_ID`: Eventbrite organizer ID.  Can be discovered by following the 'View organizer profile' link on any of your public event pages
+* `EB_EVENT_ID`: (optional) Eventbrite event ID.  If not provided, will use the next upcoming event organised by you.  Generally better not to set this unless you have multiple events starting at the same time.
 * `EB_OAUTH_TOKEN`: Eventbrite Oauth token
 * `EVENT_NAME` (optional): Name of event.  If omitted, the event name from Eventbrite will be used
 * `DEBUG` (optional): Configuration for the [debug](https://github.com/visionmedia/debug) node module.  To see all debug output, set to `*`.  If not set the app will produce no output.
