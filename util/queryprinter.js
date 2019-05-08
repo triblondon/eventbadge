@@ -1,10 +1,9 @@
-'use strict';
+require('dotenv').config()
 
-require('dotenv').load();
+var ipp = require('ipp')
+var printer = ipp.Printer(process.env.IPP_PRINTER_URL)
 
-var ipp = require('ipp');
-var printer = ipp.Printer(process.env.IPP_PRINTER_URL);
-
-printer.execute("Get-Printer-Attributes", null, function(err, res){
-	console.log(res['printer-attributes-tag']);
-});
+printer.execute('Get-Printer-Attributes', null, (err, res) => {
+  if (err) throw err
+  console.log(res['printer-attributes-tag'])
+})

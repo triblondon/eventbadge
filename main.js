@@ -2,7 +2,8 @@
 
 var fs = require('fs');
 
-require('dotenv').load();
+require('dotenv').config();
+
 var fetch = require('node-fetch');
 var _ = require('lodash');
 var moment = require('moment');
