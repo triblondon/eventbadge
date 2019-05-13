@@ -21,7 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
     'Capital',
     'Marvellous',
     'Smashing',
-    'Nicely done'
+    'Nicely done',
+    'Super duper',
+    'That\'s the ticket',
+    'Magnificent',
+    'Extraordinary',
+    'Fabulous',
+    'Singular',
+    'Stupendous',
+    'Terrific'
   ]
 
   let layoutTimer
