@@ -1,5 +1,6 @@
+/* eslint-env browser */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   const cont = document.querySelector('.attendees-list')
   const stream = new EventSource('/stream')
   const popMessages = [
@@ -38,26 +39,24 @@ document.addEventListener('DOMContentLoaded', function() {
       const minItemWidth = 200
       const fontSizeRatio = 2.5 // px of item height for each px of font size
 
-      let bestRatio, thisRatio
+      let bestRatio = 1000
+      let thisRatio
       let bestColCount, thisColCount
-      let thisItemHeight, thisItemWidth, bestItemHeight, bestItemWidth
+      let thisItemHeight, thisItemWidth, bestItemHeight
 
       for (thisColCount = 1; thisColCount <= maxCols; thisColCount++) {
         thisItemWidth = contWidth / thisColCount
         thisItemHeight = contHeight / Math.ceil(itemCount / thisColCount)
         thisRatio = thisItemWidth / thisItemHeight
         if (Math.abs(idealRatio - thisRatio) < Math.abs(idealRatio - bestRatio) && thisItemWidth > minItemWidth) {
-          console.log('Possible', thisColCount, 'cols')
           bestRatio = thisRatio
           bestColCount = thisColCount
-          bestItemWidth = thisItemWidth
           bestItemHeight = thisItemHeight
         }
       }
 
       cont.style.fontSize = (bestItemHeight / fontSizeRatio) + 'px'
 
-      console.log('Best', bestColCount)
       if (!cont.classList.contains('cols-' + bestColCount)) {
         cont.classList.remove('cols-1', 'cols-2', 'cols-3', 'cols-4', 'cols-5')
         cont.classList.add('cols-' + bestColCount)
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     popEl.style.left = attendeeEl.offsetLeft + 'px'
     popEl.innerHTML = popMessages[Math.floor(Math.random() * popMessages.length)]
     popEl.addEventListener('animationend', () => {
-      this.parentNode.removeChild(this)
+      popEl.remove()
     })
     document.body.appendChild(popEl)
   }, false)

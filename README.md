@@ -26,6 +26,14 @@ Configure the app via env vars as follows:
 * `DEBUG` (optional): Configuration for the [debug](https://github.com/visionmedia/debug) node module.  To see all debug output, set to `*`.  If not set the app will produce no output.
 * `PORT` TCP port on which to run a web server for status dashboard (default 3006)
 
+## CUPS
+
+This app requires a Mac running CUPS.  Your machine probably already is, but you might need to enable the web UI:
+
+```bash
+sudo cupsctl WebInterface=yes
+```
+
 ## Web server
 
 The app creates a web server which displays the guestlist and current checkin status of each person, which is updated in real time using Server-sent events when people check in.  As a fun extra it also greets each person with a random greeting.

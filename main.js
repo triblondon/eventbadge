@@ -1,28 +1,25 @@
-'use strict';
+const fs = require('fs')
 
-var fs = require('fs');
+require('dotenv').config()
 
-require('dotenv').config();
+const fetch = require('node-fetch')
+const moment = require('moment')
+const debug = require('debug')('eventbadge:main')
 
-var fetch = require('node-fetch');
-var _ = require('lodash');
-var moment = require('moment');
-var debug = require('debug')('eventbadge:main');
+const generateLabel = require('./lib/label')
+const printLabel = require('./lib/print')
+const webServer = require('./lib/web')
+const event = require('./lib/event')
 
-var generateLabel = require('./lib/label');
-var printLabel = require('./lib/print');
-var webServer = require('./lib/web');
-var event = require('./lib/event');
-
-event.on('checkin', function(attendee) {
-	debug('Generating label for: '+attendee.givenName+' '+attendee.familyName);
-	return generateLabel(_.extend({}, attendee, {
+event.on('checkin', async attendee => {
+  debug('Generating label', attendee)
+	const label = await generateLabel({
+    ...attendee,
 		eventName: event.getName(),
 		eventDate: event.getStartTime()
-	})).then(function(label) {
-		debug('Printing '+attendee.givenName+' '+attendee.familyName);
-		return printLabel(label);
-	}).catch(function(reason) {
-		console.log(reason.stack || reason);
-	});
-});
+  })
+	debug('Printing label', attendee)
+	return printLabel(label)
+})
+
+event.init()
